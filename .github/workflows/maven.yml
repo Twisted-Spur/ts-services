@@ -32,7 +32,7 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
     - name: Publish to GitHub Packages Apache Maven
-      run: mvn deploy -N -s $GITHUB_WORKSPACE/.github/maven-settings/settings.xml
+      run: mvn deploy -s $GITHUB_WORKSPACE/.github/maven-settings/settings.xml
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GITHUB_ACTOR: ${{ github.actor }}
