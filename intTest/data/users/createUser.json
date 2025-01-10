@@ -1,0 +1,11 @@
+{
+    "id": null,
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "john.doe@example.com",
+    "passwd": "securePassword123",
+    "birthday": "1990-01-01",
+    "phoneNumber": "1234567890",
+    "createdAt": null,
+    "updatedAt": null
+}

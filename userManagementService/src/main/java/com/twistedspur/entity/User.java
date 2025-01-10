@@ -1,9 +1,7 @@
 package com.twistedspur.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,10 +14,10 @@ import java.time.LocalDate;
 @Setter
 @Entity
 @Table(name = "users", schema = "twisted_spur")
+@Tag(name = "User Management", description = "Operations related to user management")
 public class User {
     @Id
-    @ColumnDefault("nextval('twisted_spur.users_id_seq')")
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotNull
@@ -46,7 +44,6 @@ public class User {
     @Column(name = "phone_number", nullable = false, length = Integer.MAX_VALUE)
     private String phoneNumber;
 
-    @ColumnDefault("CURRENT_TIMESTAMP")
     @Column(name = "created_at")
     private Instant createdAt;
 

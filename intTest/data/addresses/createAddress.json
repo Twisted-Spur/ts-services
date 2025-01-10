@@ -1,0 +1,14 @@
+{
+    "id": 1,
+    "userId": 123,
+    "title": "Home",
+    "billingAddress": "123 Main St, Apt 4B",
+    "shippingAddress": "123 Main St, Apt 4B",
+    "country": "USA",
+    "stateShort": "NY",
+    "city": "New York",
+    "postalCode": "10001",
+    "phoneNumber": "+1-555-1234",
+    "createdAt": "2025-01-10T06:08:55Z",
+    "updatedAt": "2025-01-10T06:08:55Z"
+  }
