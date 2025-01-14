@@ -13,9 +13,4 @@ public class InventoryManagementServiceApplication {
 		SpringApplication.run(InventoryManagementServiceApplication.class, args);
 	}
 
-	@Bean
-	public Function<String, String> reverseString() {
-		System.out.println("called this function");
-		return value -> new StringBuilder(value).reverse().toString();
-	}
 }
