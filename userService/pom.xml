@@ -6,13 +6,12 @@
 		<groupId>com.twistedspur</groupId>
 		<artifactId>twistedSpur-parent-pom</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath>..</relativePath> <!-- lookup parent from repository -->
 	</parent>
-
-	<artifactId>inventoryMangementService</artifactId>
+	<artifactId>userService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>inventoryManagementService</name>
-	<description>Handles inventory management for both customers and employees.</description>
+	<name>userManagementService</name>
+	<description>Handles user management (creation, updates, etc) for Twisted Spur.</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -20,12 +19,6 @@
 	<developers>
 		<developer/>
 	</developers>
-	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
-	</scm>
 	<dependencies>
 	</dependencies>
 

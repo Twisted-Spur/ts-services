@@ -39,8 +39,8 @@
 
     <!-- Modules -->
     <modules>
-        <module>UserManagementService</module>
-        <module>InventoryManagementService</module>
+        <module>userService</module>
+        <module>inventoryService</module>
     </modules>
 
     <properties>
