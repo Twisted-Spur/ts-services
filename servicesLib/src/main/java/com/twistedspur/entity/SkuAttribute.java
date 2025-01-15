@@ -20,7 +20,7 @@ public class SkuAttribute {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_sku_id")
-    private Category productSku;
+    private ProductSkus productSku;
 
     @NotNull
     @Column(name = "attribute_type", nullable = false, length = Integer.MAX_VALUE)

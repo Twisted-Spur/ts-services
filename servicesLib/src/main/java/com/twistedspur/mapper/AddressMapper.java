@@ -6,12 +6,13 @@ import org.mapstruct.BeanMapping;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingConstants;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", uses = {UserMapper.class})
+@Mapper(componentModel = MappingConstants.ComponentModel.SPRING, uses = {UserMapper.class})
 public interface AddressMapper {
     @Mapping(source = "userId", target = "user")
     Address toEntity(AddressDto addressDto);

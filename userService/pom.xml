@@ -6,11 +6,11 @@
 		<groupId>com.twistedspur</groupId>
 		<artifactId>twistedSpur-parent-pom</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>..</relativePath> <!-- lookup parent from repository -->
+		<relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
 	</parent>
 	<artifactId>userService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>userManagementService</name>
+	<name>userService</name>
 	<description>Handles user management (creation, updates, etc) for Twisted Spur.</description>
 	<url/>
 	<licenses>
@@ -20,6 +20,11 @@
 		<developer/>
 	</developers>
 	<dependencies>
+		<dependency>
+			<groupId>com.twistedspur</groupId>
+			<artifactId>servicesLib</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>

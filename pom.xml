@@ -39,6 +39,7 @@
 
     <!-- Modules -->
     <modules>
+        <module>servicesLib</module>
         <module>userService</module>
         <module>inventoryService</module>
     </modules>
