@@ -2,13 +2,22 @@ package com.twistedspur.mapper;
 
 import com.twistedspur.dto.CategoryDto;
 import com.twistedspur.entity.Category;
-import org.mapstruct.*;
+import org.mapstruct.BeanMapping;
+import org.mapstruct.Mapper;
+import org.mapstruct.MappingConstants;
+import org.mapstruct.MappingTarget;
+import org.mapstruct.NullValuePropertyMappingStrategy;
+
+import java.util.List;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface CategoryMapper {
     Category toEntity(CategoryDto categoryDto);
 
     CategoryDto toDto(Category category);
+
+    List<Category> toEntity(List<CategoryDto> categoryDtos);
+    List<CategoryDto> toDto(List<Category> categories);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     Category partialUpdate(CategoryDto categoryDto, @MappingTarget Category category);

@@ -1,7 +1,7 @@
 package com.twistedspur.controller;
 
 import com.twistedspur.dto.CategoryDto;
-import com.twistedspur.dto.UserDto;
+import com.twistedspur.mapper.CategoryMapperImpl;
 import com.twistedspur.service.CategoriesService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +45,7 @@ public class CategoriesController {
         // Update a category
         @PutMapping("/{id}")
         public CategoryDto updateCategory(@PathVariable Integer id, @RequestBody String updatedCategoryName) {
-            return categoriesService.updateCategoryName(id, updatedCategoryName);
+            return categoriesService.updateCategory(id, updatedCategoryName);
         }
 
         // Delete a Category
@@ -53,5 +53,4 @@ public class CategoriesController {
         public void deleteUser(@PathVariable Integer id) {
             categoriesService.deleteCategory(id);
         }
-    }
 }
