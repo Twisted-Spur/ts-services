@@ -1,8 +1,10 @@
 package com.twistedspur.service;
 
+import com.twistedspur.dto.LoginRequest;
 import com.twistedspur.dto.UserDto;
 import com.twistedspur.entity.User;
 import com.twistedspur.exception.NotFoundException;
+import com.twistedspur.exception.UserValidationException;
 import com.twistedspur.mapper.UserMapper;
 import com.twistedspur.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,14 @@ public class UserService {
     // Create a new User
     public UserDto createUser(UserDto userDto) {
         User user = userMapper.toEntity(userDto);
+
+        if (userRepository.existsByEmail(user.getEmail())) {
+            throw new UserValidationException("Sorry, an account with that email already exists.");
+        }
+
+        // need to secure the password before db storage
+        user.setPasswd(PasswordUtil.hashPassword(user.getPasswd()));
+
         userRepository.save(user);
         return userMapper.toDto(user);
     }
@@ -48,6 +58,10 @@ public class UserService {
         Optional<User> user = userRepository.findById(id);
         if (user.isPresent()) {
             User existingUser = userMapper.partialUpdate(userDetails, user.get());
+
+            // need to secure the password before db storage
+            existingUser.setPasswd(PasswordUtil.hashPassword(existingUser.getPasswd()));
+
             User updatedUser = userRepository.save(existingUser);
             return userMapper.toDto(updatedUser);
         } else {
@@ -62,6 +76,19 @@ public class UserService {
             userRepository.delete(user.get());
         } else {
             throw new NotFoundException("User with id " + id + " not found");
+        }
+    }
+
+    // Validate login attempt
+    public void attemptLogin(LoginRequest loginRequest) {
+        Optional<User> user = userRepository.findByEmail(loginRequest.email());
+        if (user.isPresent()) {
+            // now validate provided password
+            if (!PasswordUtil.verifyPassword(loginRequest.password(), user.get().getPasswd())) {
+                throw new UserValidationException("Invalid password provided for this account.");
+            }
+        } else {
+            throw new NotFoundException("User with email " + loginRequest.email() + " not found");
         }
     }
 }
