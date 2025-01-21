@@ -4,13 +4,13 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.twistedspur</groupId>
-		<artifactId>twistedSpur-parent-pom</artifactId>
+		<artifactId>twisted-spur-parent-pom</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
 	</parent>
-	<artifactId>userService</artifactId>
+	<artifactId>user-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>userService</name>
+	<name>user-service</name>
 	<description>Handles user management (creation, updates, etc) for Twisted Spur.</description>
 	<url/>
 	<licenses>

@@ -10,10 +10,10 @@
     </parent>
     <!-- Parent project coordinates -->
     <groupId>com.twistedspur</groupId>
-    <artifactId>twistedSpur-parent-pom</artifactId>
+    <artifactId>twisted-spur-parent-pom</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>twistedSpur-parent-pom</name>
+    <name>twisted-spur-parent-pom</name>
 
     <url/>
     <licenses>

@@ -4,14 +4,14 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.twistedspur</groupId>
-		<artifactId>twistedSpur-parent-pom</artifactId>
+		<artifactId>twisted-spur-parent-pom</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
 	</parent>
 
-	<artifactId>inventoryService</artifactId>
+	<artifactId>inventory-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>inventoryService</name>
+	<name>inventory-service</name>
 	<description>Handles inventory management for both customers and employees.</description>
 	<url/>
 	<licenses>
