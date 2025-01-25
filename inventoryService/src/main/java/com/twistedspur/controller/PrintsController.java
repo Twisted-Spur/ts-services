@@ -1,9 +1,13 @@
 package com.twistedspur.controller;
 
 import com.twistedspur.dto.CategoryDto;
+import com.twistedspur.dto.PrintDto;
 import com.twistedspur.service.CategoriesService;
+import com.twistedspur.service.PrintsService;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,7 +15,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -21,35 +28,38 @@ import java.util.List;
 public class PrintsController {
 
     @Autowired
-    CategoriesService categoriesService;
+    PrintsService printsService;
 
-    // Create a new categories
-    @PostMapping
-    public List<CategoryDto> createCategories(@RequestBody List<CategoryDto> categoryDtos) {
-        return categoriesService.createCategories(categoryDtos);
+    // Create a new print entry
+    @PostMapping(consumes= MediaType.MULTIPART_FORM_DATA_VALUE)
+    public PrintDto createPrint(
+            @RequestPart("printDto") PrintDto printDto,
+            @RequestPart("file") MultipartFile multipartFile) {
+        return printsService.createPrint(multipartFile, printDto);
     }
 
-    // Get all Categories
-    @GetMapping
-    public List<CategoryDto> getAllUsers() {
-        return categoriesService.getAllCategories();
-    }
-
-    // Get a single category by its id
-    @GetMapping("/{id}")
-    public CategoryDto getCategoryById(@PathVariable Integer id) {
-        return categoriesService.getCategoryById(id);
-    }
-
-    // Update a category
-    @PutMapping("/{id}")
-    public CategoryDto updateCategory(@PathVariable Integer id, @RequestBody String updatedCategoryName) {
-        return categoriesService.updateCategory(id, updatedCategoryName);
-    }
-
-    // Delete a Category
-    @DeleteMapping("/{id}")
-    public void deleteUser(@PathVariable Integer id) {
-        categoriesService.deleteCategory(id);
-    }
+//    // Get all Prints
+//    // TODO - a similar endpoint should have filterable criteria for paging through prints
+//    @GetMapping
+//    public List<CategoryDto> getAllUsers() {
+//        return categoriesService.getAllCategories();
+//    }
+//
+//    // Get a single print by its id
+//    @GetMapping("/{id}")
+//    public CategoryDto getCategoryById(@PathVariable Integer id) {
+//        return categoriesService.getCategoryById(id);
+//    }
+//
+//    // Update a print
+//    @PutMapping("/{id}")
+//    public CategoryDto updateCategory(@PathVariable Integer id, @RequestBody String updatedCategoryName) {
+//        return categoriesService.updateCategory(id, updatedCategoryName);
+//    }
+//
+//    // Delete a print
+//    @DeleteMapping("/{id}")
+//    public void deleteUser(@PathVariable Integer id) {
+//        categoriesService.deleteCategory(id);
+//    }
 }

@@ -3,25 +3,31 @@ package com.twistedspur.exception;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 
-@ControllerAdvice
+@RestControllerAdvice
 public class GlobalExceptionHandler {
 
     // Handle specific exceptions
     @ExceptionHandler(NotFoundException.class)
-    public ResponseEntity<ErrorDetails> handleResourceNotFoundException(NotFoundException ex, WebRequest request) {
-        ErrorDetails errorDetails = new ErrorDetails(HttpStatus.NOT_FOUND.value(), ex.getMessage(), request.getDescription(false));
-        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ErrorDetails handleException(NotFoundException ex, WebRequest request) {
+        return new ErrorDetails(ex.getMessage(), request.getDescription(false));
     }
 
     @ExceptionHandler(UserValidationException.class)
-    public ResponseEntity<ErrorDetails> handleResourceNotFoundException(UserValidationException ex, WebRequest request) {
-        ErrorDetails errorDetails = new ErrorDetails(HttpStatus.NOT_FOUND.value(), ex.getMessage(), request.getDescription(false));
-        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ErrorDetails handleException(UserValidationException ex, WebRequest request) {
+        return new ErrorDetails(ex.getMessage(), request.getDescription(false));
+    }
+
+    @ExceptionHandler(UploadException.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public ErrorDetails handleException(UploadException ex, WebRequest request) {
+        return new ErrorDetails(ex.getMessage(), request.getDescription(false));
     }
 
     // Error details class
@@ -29,15 +35,12 @@ public class GlobalExceptionHandler {
     @Getter
     public static class ErrorDetails {
         // Getters and setters
-        private int statusCode;
         private String message;
         private String details;
 
-        public ErrorDetails(int statusCode, String message, String details) {
-            this.statusCode = statusCode;
+        public ErrorDetails(String message, String details) {
             this.message = message;
             this.details = details;
         }
-
     }
 }

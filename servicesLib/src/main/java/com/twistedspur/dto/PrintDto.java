@@ -13,7 +13,7 @@ public record PrintDto(@NotNull Integer id,
                        @NotNull Integer categoryId,
                        @NotNull Integer transferTypeId,
                        @NotNull BigDecimal price,
-                       @NotNull String urlToPrint,
+                       String urlToPrint,
                        Instant createdAt,
                        Instant updatedAt) implements Serializable {
 }
