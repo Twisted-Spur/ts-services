@@ -9,7 +9,7 @@ import java.time.Instant;
 /**
  * DTO for {@link com.twistedspur.entity.Print}
  */
-public record PrintDto(@NotNull Integer id,
+public record PrintDto(Integer id,
                        @NotNull Integer categoryId,
                        @NotNull Integer transferTypeId,
                        @NotNull BigDecimal price,

@@ -37,7 +37,7 @@ public class PrintsService {
         try {
             blobUrl = uploadToAzureBlob(multipartFile);
         } catch (IOException e) {
-            throw new UploadException(String.format("Failed to upload file - %s", e.getMessage()));
+            throw new UploadException(String.format("Failed to upload file to cloud storage - %s", e.getMessage()));
         }
 
         Print print = printMapper.toEntity(printDto);

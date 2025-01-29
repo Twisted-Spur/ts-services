@@ -15,9 +15,7 @@ import java.time.Instant;
 @Table(name = "prints", schema = "twisted_spur")
 public class Print {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "prints_id_gen")
-    @SequenceGenerator(name = "prints_id_gen", sequenceName = "prints_id_seq", allocationSize = 1)
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
