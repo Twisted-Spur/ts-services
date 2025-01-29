@@ -47,8 +47,8 @@ public class UserController {
         userService.deleteUser(id);
     }
 
-    @GetMapping("/login")
-    public void attemptLogin(@RequestBody LoginRequest loginRequest) {
-        userService.attemptLogin(loginRequest);
+    @GetMapping("/login/{email}/{password}")
+    public void attemptLogin(@PathVariable String email, @PathVariable String password) {
+        userService.attemptLogin(email, password);
     }
 }

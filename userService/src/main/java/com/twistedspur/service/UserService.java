@@ -9,6 +9,7 @@ import com.twistedspur.mapper.UserMapper;
 import com.twistedspur.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -80,15 +81,15 @@ public class UserService {
     }
 
     // Validate login attempt
-    public void attemptLogin(LoginRequest loginRequest) {
-        Optional<User> user = userRepository.findByEmail(loginRequest.email());
+    public void attemptLogin(String email, String password) {
+        Optional<User> user = userRepository.findByEmail(email);
         if (user.isPresent()) {
             // now validate provided password
-            if (!PasswordUtil.verifyPassword(loginRequest.password(), user.get().getPasswd())) {
+            if (!PasswordUtil.verifyPassword(password, user.get().getPasswd())) {
                 throw new UserValidationException("Invalid password provided for this account.");
             }
         } else {
-            throw new NotFoundException("User with email " + loginRequest.email() + " not found");
+            throw new NotFoundException("User with email " + email + " not found");
         }
     }
 }
