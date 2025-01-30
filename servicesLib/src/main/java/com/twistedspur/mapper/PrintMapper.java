@@ -10,6 +10,8 @@ import org.mapstruct.MappingConstants;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 
+import java.util.List;
+
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING, uses = {CategoryMapper.class, TransferTypeMapper.class})
 public interface PrintMapper {
     @Mapping(target = "transferType", source = "transferTypeId")
@@ -18,6 +20,8 @@ public interface PrintMapper {
 
     @InheritInverseConfiguration(name = "toEntity")
     PrintDto toDto(Print print);
+
+    List<PrintDto> toDtos(List<Print> prints);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(target = "transferType", source = "transferTypeId")
