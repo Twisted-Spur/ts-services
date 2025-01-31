@@ -14,23 +14,21 @@ import java.time.Instant;
 @Table(name = "products", schema = "twisted_spur")
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "products_id_gen")
-    @SequenceGenerator(name = "products_id_gen", sequenceName = "products_id_seq", allocationSize = 1)
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @Column(name = "price", precision = 12, scale = 2)
-    private BigDecimal price;
+    @Column(name = "name")
+    private String name;
 
-    @Column(name = "cost", precision = 12, scale = 2)
-    private BigDecimal cost;
+    @Column(name = "summary")
+    private String summary;
 
-    @Column(name = "quantity")
-    private Integer quantity;
+    @Column(name = "description")
+    private String description;
 
     @ColumnDefault("CURRENT_TIMESTAMP")
     @Column(name = "created_at")

@@ -19,5 +19,6 @@ public interface ProductMapper {
     ProductDto toDto(Product product);
 
     @Mapping(target = "category", source = "categoryId")
-    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)Product partialUpdate(ProductDto productDto, @MappingTarget Product product);
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    Product partialUpdate(ProductDto productDto, @MappingTarget Product product);
 }

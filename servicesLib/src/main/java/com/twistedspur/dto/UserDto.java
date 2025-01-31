@@ -12,6 +12,6 @@ import java.time.LocalDate;
  * DTO for {@link com.twistedspur.entity.User}
  */
 public record UserDto(Integer id, @NotNull String firstName, @NotNull String lastName, @Email String email,
-                      @NotBlank String passwd, @NotNull LocalDate birthday, @NotBlank String phoneNumber,
+                      @NotBlank String passwd, Boolean isAdmin, @NotNull LocalDate birthday, @NotBlank String phoneNumber,
                       Instant createdAt, Instant updatedAt) implements Serializable {
 }

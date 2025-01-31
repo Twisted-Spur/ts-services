@@ -36,6 +36,10 @@ public class User {
     private String passwd;
 
     @NotNull
+    @Column(name = "is_admin", nullable = false)
+    private Boolean isAdmin;
+
+    @NotNull
     @Column(name = "birthday", nullable = false)
     private LocalDate birthday;
 
