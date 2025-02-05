@@ -1,6 +1,5 @@
 package com.twistedspur.service;
 
-import com.twistedspur.dto.LoginRequest;
 import com.twistedspur.dto.UserDto;
 import com.twistedspur.entity.User;
 import com.twistedspur.exception.NotFoundException;
@@ -9,7 +8,6 @@ import com.twistedspur.mapper.UserMapper;
 import com.twistedspur.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
