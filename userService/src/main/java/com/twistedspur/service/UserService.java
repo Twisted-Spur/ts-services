@@ -1,5 +1,6 @@
 package com.twistedspur.service;
 
+import com.twistedspur.dto.LoginDto;
 import com.twistedspur.dto.UserDto;
 import com.twistedspur.entity.User;
 import com.twistedspur.exception.NotFoundException;
@@ -79,15 +80,15 @@ public class UserService {
     }
 
     // Validate login attempt
-    public void attemptLogin(String email, String password) {
-        Optional<User> user = userRepository.findByEmail(email);
+    public void attemptLogin(LoginDto loginDto) {
+        Optional<User> user = userRepository.findByEmail(loginDto.email());
         if (user.isPresent()) {
             // now validate provided password
-            if (!PasswordUtil.verifyPassword(password, user.get().getPasswd())) {
+            if (!PasswordUtil.verifyPassword(loginDto.password(), user.get().getPasswd())) {
                 throw new UserValidationException("Invalid password provided for this account.");
             }
         } else {
-            throw new NotFoundException("User with email " + email + " not found");
+            throw new NotFoundException("User with email " + loginDto.email() + " not found");
         }
     }
 }

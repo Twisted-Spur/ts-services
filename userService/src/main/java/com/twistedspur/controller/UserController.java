@@ -1,6 +1,6 @@
 package com.twistedspur.controller;
 
-import com.twistedspur.dto.LoginRequest;
+import com.twistedspur.dto.LoginDto;
 import com.twistedspur.dto.UserDto;
 import com.twistedspur.service.UserService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -47,8 +47,8 @@ public class UserController {
         userService.deleteUser(id);
     }
 
-    @GetMapping("/login/{email}/{password}")
-    public void attemptLogin(@PathVariable String email, @PathVariable String password) {
-        userService.attemptLogin(email, password);
+    @PostMapping("/login")
+    public void attemptLogin(@RequestBody LoginDto loginDto) {
+        userService.attemptLogin(loginDto);
     }
 }
