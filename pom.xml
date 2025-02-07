@@ -24,16 +24,16 @@
     </developers>
     <!-- scm setting allows maven plugins to update git repos -->
     <scm>
-        <connection>scm:git:https://github.com/Twisted-Spur/services.git</connection>
-        <developerConnection>scm:git:git@github.com:Twisted-Spur/services.git</developerConnection>
+        <connection>scm:git:https://github.com/Twisted-Spur/ts-services.git</connection>
+        <developerConnection>scm:git:git@github.com:Twisted-Spur/ts-services.git</developerConnection>
         <tag>HEAD</tag>
-        <url>https://github.com/Twisted-Spur/services</url>
+        <url>https://github.com/Twisted-Spur/ts-services</url>
     </scm>
     <distributionManagement>
         <repository>
             <id>github</id>
             <name>GitHub Twisted Spur Services</name>
-            <url>https://maven.pkg.github.com/Twisted-Spur/services</url>
+            <url>https://maven.pkg.github.com/Twisted-Spur/ts-services</url>
         </repository>
     </distributionManagement>
 
