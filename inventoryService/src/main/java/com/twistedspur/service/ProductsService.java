@@ -34,7 +34,7 @@ public class ProductsService {
         Optional<Product> optProduct = productsRepository.findById(productDto.id());
 
         if (optProduct.isEmpty()) {
-            throw new NotFoundException("Category with id " + productDto.id() + " not found");
+            throw new NotFoundException("Product with id " + productDto.id() + " not found");
         }
 
         Product product = optProduct.get();
