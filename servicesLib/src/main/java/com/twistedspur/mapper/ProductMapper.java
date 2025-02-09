@@ -10,6 +10,8 @@ import org.mapstruct.MappingConstants;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 
+import java.util.List;
+
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING, uses = {CategoryMapper.class})
 public interface ProductMapper {
     @Mapping(target = "category", source = "categoryId")
@@ -17,6 +19,8 @@ public interface ProductMapper {
 
     @InheritInverseConfiguration(name = "toEntity")
     ProductDto toDto(Product product);
+
+    List<ProductDto> toDtos(List<Product> products);
 
     @Mapping(target = "category", source = "categoryId")
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
