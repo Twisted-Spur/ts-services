@@ -1,6 +1,5 @@
 package com.twistedspur.controller;
 
-import com.twistedspur.dto.CategoryDto;
 import com.twistedspur.dto.PrintDto;
 import com.twistedspur.service.PrintsService;
 import io.swagger.v3.oas.annotations.tags.Tag;

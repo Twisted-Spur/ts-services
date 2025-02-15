@@ -33,7 +33,7 @@ public class ProductsController {
 
     // Get all Products under a category
     @GetMapping("/{catId}")
-    public List<ProductDto> getProductsByCatId(@QueryParam("catId") Integer catId) {
+    public List<ProductDto> getProductsByCatId(@PathVariable Integer catId) {
         return productsService.getProductsByCatId(catId);
     }
 

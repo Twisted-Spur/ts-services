@@ -1,7 +1,7 @@
 package com.twistedspur.mapper;
 
-import com.twistedspur.dto.SkuAttributeDto;
-import com.twistedspur.entity.SkuAttribute;
+import com.twistedspur.dto.PrintPlacementDto;
+import com.twistedspur.entity.PrintPlacement;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
@@ -12,13 +12,13 @@ import org.mapstruct.ReportingPolicy;
 import java.util.List;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)
-public interface SkuAttributeMapper {
-    SkuAttribute toEntity(SkuAttributeDto skuAttributeDto);
+public interface PrintPlacementMapper {
+    PrintPlacement toEntity(PrintPlacementDto printPlacementDto);
 
-    SkuAttributeDto toDto(SkuAttribute skuAttribute);
+    PrintPlacementDto toDto(PrintPlacement printPlacement);
 
-    List<SkuAttributeDto> toDto(List<SkuAttribute> skuAttributes);
+    List<PrintPlacementDto> toDto(List<PrintPlacement> printPlacements);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    SkuAttribute partialUpdate(SkuAttributeDto skuAttributeDto, @MappingTarget SkuAttribute skuAttribute);
+    PrintPlacement partialUpdate(PrintPlacementDto printPlacementDto, @MappingTarget PrintPlacement printPlacement);
 }

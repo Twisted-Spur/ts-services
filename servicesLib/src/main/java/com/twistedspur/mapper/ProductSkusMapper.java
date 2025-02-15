@@ -9,11 +9,15 @@ import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 import org.mapstruct.ReportingPolicy;
 
+import java.util.List;
+
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)
 public interface ProductSkusMapper {
     ProductSkus toEntity(ProductSkusDto productSkusDto);
 
     ProductSkusDto toDto(ProductSkus productSkus);
+
+    List<ProductSkusDto> toDto(List<ProductSkus> productSkusList);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     ProductSkus partialUpdate(ProductSkusDto productSkusDto, @MappingTarget ProductSkus productSkus);
