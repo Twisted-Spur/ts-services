@@ -36,7 +36,7 @@ public class SkuAttributesService {
         Optional<SkuAttribute> optSkuAttribute = skuAttributesRepository.findById(skuAttributeDto.id());
 
         if (optSkuAttribute.isEmpty()) {
-            throw new NotFoundException("Product sku with id " + skuAttributeDto.id() + " not found");
+            throw new NotFoundException("Sku attribute with id " + skuAttributeDto.id() + " not found");
         }
 
         SkuAttribute skuAttribute = optSkuAttribute.get();

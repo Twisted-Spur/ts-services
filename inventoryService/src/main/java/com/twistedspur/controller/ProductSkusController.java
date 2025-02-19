@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/productskus")
+@RequestMapping("/productSkus")
 @Tag(name = "Product SKU Management", description = "Operations to perform product SKU management")
 public class ProductSkusController {
 
