@@ -19,6 +19,8 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    environment: dev
+
     permissions:
       contents: read
       packages: write
