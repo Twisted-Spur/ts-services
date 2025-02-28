@@ -26,6 +26,9 @@ jobs:
       packages: write
 
     steps:
+    - name: Building with env dev
+      run: echo "Deploying to dev with secret ${{ secrets.TS_POSTGRES_PW }}"
+
     - name: Checkout code
       uses: actions/checkout@v4
       
