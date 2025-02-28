@@ -21,13 +21,13 @@ public class Product {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @Column(name = "name")
+    @Column(name = "product_name")
     private String name;
 
     @Column(name = "summary")
     private String summary;
 
-    @Column(name = "description")
+    @Column(name = "product_description")
     private String description;
 
     @ColumnDefault("CURRENT_TIMESTAMP")

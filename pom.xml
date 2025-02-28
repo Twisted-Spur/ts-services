@@ -105,24 +105,12 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.instancio</groupId>
             <artifactId>instancio-junit</artifactId>
             <version>5.3.0</version>
             <scope>test</scope>
         </dependency>
 
-        <!-- custom/homebrew deps -->
-        <dependency>
-            <groupId>com.twistedSpur</groupId>
-            <artifactId>ddl-scripts</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
     <dependencyManagement>
         <dependencies>
