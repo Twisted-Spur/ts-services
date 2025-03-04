@@ -26,7 +26,7 @@ public class ProductsService {
     }
 
     public List<ProductDto> getProductsByCatId(Integer catId) {
-        List<Product> products = productsRepository.findAllById(List.of(catId));
+        List<Product> products = productsRepository.findAllByCategoryId(catId);
         return productMapper.toDtos(products);
     }
 
