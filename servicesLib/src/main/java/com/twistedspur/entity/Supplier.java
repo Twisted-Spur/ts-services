@@ -20,8 +20,8 @@ public class Supplier {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "brand", length = Integer.MAX_VALUE)
-    private String brand;
+    @Column(name = "supplier_name", length = Integer.MAX_VALUE)
+    private String supplierName;
 
     @ColumnDefault("CURRENT_TIMESTAMP")
     @Column(name = "created_at")
